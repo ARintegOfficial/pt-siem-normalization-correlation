@@ -4,11 +4,17 @@
 1) Cisco_ASA (в файле )  
 2) Nextcloud (в файле )  
 3) Linux
-     a)iptables (в файле )
-     b)imjournal (в файле )
-     c)crond (в файле )
-     d)SELinux (в файле )
-     e)omkafka (в файле )
+
+     a) iptables (в файле )
+     
+     b) imjournal (в файле )
+     
+     c) crond (в файле )
+     
+     d) SELinux (в файле )
+     
+     e) omkafka (в файле )
+     
 5) vSphere (в файле )    
 6) Postfix (в файле )   
 *Примечания: 
