@@ -5,7 +5,7 @@
 2) Nextcloud (в файле )  
 3) Linux
 
-     a) iptables (в файле  )
+     a) iptables (в файле iptables.txt)
      
      b) imjournal (в файле )
      
