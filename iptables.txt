@@ -1,0 +1,85 @@
+#<4>Jan 17 12:16:54 XXXX-XXXX-XXXX-XXXX kernel: iptables: INPUT DROP IN=ens192 OUT= MAC=XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX SRC=XXX.XXX.XXX.XXX DST=XXX.XXX.XXX.XXX LEN=XX TOS=XxXX PREC=XxXX TTL=XXX ID=XXXXX PROTO=UDP SPT=XXXXX DPT=XXX LEN=XX
+#<4>Jan 17 12:16:36 XXXX-XXXX-XXXX-XXXX kernel: iptables: INPUT DROP IN=ens192 OUT= MAC=XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX SRC=XXX.XXX.XXX.XXX DST=XXX.XXX.XXX.XXX LEN=XX TOS=XxXX PREC=XxXX TTL=XXX ID=XXXXX DF PROTO=TCP SPT=XXXXX DPT=XX WINDOW=XXXX RES=XxXX SYN URGP=X OPT (XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX)
+#<4>Jan 17 12:16:54 XXXX-XXXX-XXXX-XXXX kernel: iptables: INPUT DROP IN=ens192 OUT= MAC=XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX SRC=XXX.XXX.XXX.XXX DST=XXX.XXX.XXX.XXX LEN=XX TOS=XxXX PREC=XxXX TTL=XXX ID=XXXXX PROTO=UDP SPT=XXXXX DPT=XXX LEN=XX
+#<4>Jan 17 12:16:55 XXXX-XXXX-XXXX-XXXX kernel: iptables: INPUT DROP IN=ens192 OUT= MAC=XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX SRC=XXX.XXX.XXX.XXX DST=XXX.XXX.XXX.XXX LEN=XX TOS=XxXX PREC=XxXX TTL=XXX ID=XXXXX PROTO=TCP SPT=XXXXX DPT=XXX WINDOW=XXXX RES=XxXX SYN URGP=X
+#<4>Jan 19 11:09:30 XXXX-XXXX-XXXX-XXXX kernel: iptables: INPUT DROP IN=ens192 OUT= MAC=XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX SRC=XXX.XXX.XXX.XXX DST=XXX.XXX.XXX.XXX LEN=XX TOS=XxXX PREC=XxXX TTL=XXX ID=XXXXX PROTO=ICMP TYPE=X CODE=X ID=XXXX SEQ=XXXXX
+#<4>Jan 19 09:13:27 XXXX-XXXX-XXXX-XXXX kernel: iptables: FORWARD DROP IN=ens192 OUT=ens224 MAC=XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX SRC=XXX.XXX.XXX.XXX DST=XXX.XXX.XXX.XXX LEN=XX TOS=XxXX PREC=XxXX TTL=XXX ID=XXXXX PROTO=TCP SPT=XXXX DPT=XX WINDOW=XXXX RES=XxXX SYN URGP=X
+#<4>Jan 19 06:31:25 XXXX-XXXX-XXXX-XXXX kernel: iptables: FORWARD DROP IN=ens224 OUT=ens192 MAC=XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX SRC=XXX.XXX.XXX.XXX DST=XXX.XXX.XXX.XXX LEN=XX TOS=XxXX PREC=XxXX TTL=XX ID=XXXX DF PROTO=TCP SPT=XXX DPT=XXXXX WINDOW=XXXX RES=XxXX ACK URGP=X
+#<4>Jan 18 15:47:28 XXXX-XXXX-XXXX-XXXX kernel: iptables: FORWARD DROP IN=ens256 OUT=ens224 MAC=XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX SRC=XXX.XXX.XXX.XXX DST=XXX.XXX.XXX.XXX LEN=XX TOS=XxXX PREC=XxXX TTL=XX ID=XXXX DF PROTO=TCP SPT=XXX DPT=XXXXX WINDOW=XXXX RES=XxXX SYN URGP=X OPT (XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX)
+
+TEXT = '{"<"NUMBER">"?} {time=DATETIME} {event_src.ip=IPV4|event_src.ip=IPV6|event_src.hostname=HOSTNAME|} kernel: iptables: {direction="INPUT" | direction="FORWARD"} DROP IN={interface=STRING?} OUT={interface=STRING?} MAC={src.mac=UNTIL(" ")} SRC={src.ip=IPV4|src.ip=IPV6} DST={dst.ip=IPV4|dst.ip=IPV6} LEN={count.packets_in=NUMBER} TOS={datafield1=STRING} PREC={datafield2=STRING} TTL={datafield3=STRING} ID={object.id=STRING} {"DF"?} PROTO={protocol=STRING} {"SPT=" src.port=NUMBER?} {"DPT=" dst.port=NUMBER?} {"LEN=" count.packets_out=NUMBER?} {"WINDOW=" NUMBER?} {"RES=" STRING?} {"NS"?} {"CWR"?} {"ECE"?} {"URG"?} {"ACK"?} {"PSH"?} {"RST"?} {"SYN"?} {"FIN"?} {"URGP=" NUMBER?} {"OPT (" UNTIL(")")?} {"TYPE=" $type=NUMBER?} {"CODE=" STRING?} {"ID=" NUMBER?} {"SEQ=" datafield5=NUMBER?}'
+
+
+if 20<=$type and $type<=29 then
+    datafield7 = "Reserved (for Robustness Experiment)"
+endif   
+
+if 44<=$type and $type<=252 then
+    datafield8 = "Unassigned"
+endif 
+
+switch $type
+    case 0 datafield6 = "Echo Reply"
+    case 1 datafield6 = "Unassigned"    
+    case 2 datafield6 = "Unassigned"    
+    case 3 datafield6 = "Destination Unreachable"
+    case 4 datafield6 = "Source Quench"    
+    case 5 datafield6 = "Redirect"    
+    case 6 datafield6 = "Alternate Host Address"        
+    case 7 datafield6 = "Unassigned"    
+    case 8 datafield6 = "Echo"    
+    case 9 datafield6 = "Router Advertisement"    
+    case 10 datafield6 = "Router Solicitation"    
+    case 11 datafield6 = "Time Exceeded"    
+    case 12 datafield6 = "Parameter Problem"    
+    case 13 datafield6 = "Timestamp"    
+    case 14 datafield6 = "Timestamp Reply"    
+    case 15 datafield6 = "Information Request"    
+    case 16 datafield6 = "Information Reply"    
+    case 17 datafield6 = "Address Mask Request"
+    case 18 datafield6 = "Address Mask Reply"
+    case 19 datafield6 = "Reserved (for Security)"
+    case 30 datafield6 = "Traceroute"
+    case 31 datafield6 = "Datagram Conversion Error"
+    case 32 datafield6 = "Mobile Host Redirect"
+    case 33 datafield6 = "IPv6 Where-Are-You"
+    case 34 datafield6 = "IPv6 I-Am-Here"
+    case 35 datafield6 = "Mobile Registration Request" 
+    case 36 datafield6 = "Mobile Registration Reply"
+    case 37 datafield6 = "Domain Name Request"
+    case 38 datafield6 = "Domain Name Reply"
+    case 39 datafield6 = "SKIP"
+    case 40 datafield6 = "Photuris"
+    case 41 datafield6 = "ICMP messages utilized by experimental mobility protocols such as Seamoby"    
+    case 42 datafield6 = "Extended Echo Request"    
+    case 43 datafield6 = "Extended Echo Reply"
+    case 253 datafield6 = "RFC3692-style Experiment 1"
+    case 254 datafield6 = "RFC3692-style Experiment 2"
+    case 255 datafield6 = "Reserved"    
+endswitch
+
+
+src.mac = substr($mac, 0, 17)  
+dst.mac = substr($mac, 18, 17)  
+
+action = "deny"
+object = "flow"
+status = "success"
+
+importance = "info"
+
+event_src.vendor = "linux"
+event_src.title = "iptables"
+event_src.category = "Operating system"
+
+id = "ARinteg_Linux_Iptables_connection_dropped" and direction="FORWARD" and (src.port != null and dst.port != null)
+Брандмауэр на маршрутизаторе сбросил соединение с узла {src.ip}:{src.port} на узел {dst.ip}:{dst.port} по протоколу {protocol}
+
+id = "ARinteg_Linux_Iptables_connection_dropped" and direction="FORWARD" and (src.port = null and dst.port = null)
+Брандмауэр на маршрутизаторе сбросил соединение с узла {src.ip} на узел {dst.ip} по протоколу {protocol}
+
+id = "ARinteg_Linux_Iptables_connection_dropped" and direction="INPUT" and (src.port != null and dst.port != null)
+Брандмауэр на узле сбросил входящее соединение с узла {src.ip}:{src.port} на узел {dst.ip}:{dst.port} по протоколу {protocol}
+
+id = "ARinteg_Linux_Iptables_connection_dropped" and direction="INPUT" and (src.port = null and dst.port = null)
+Брандмауэр на узле сбросил входящее соединение с узла {src.ip} на узел {dst.ip} по протоколу {protocol}
