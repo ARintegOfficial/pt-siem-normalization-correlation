@@ -1,0 +1,47 @@
+# <14>1 2019-05-22T09:40:33Z XXXXXXXXXX XXXXXXXXXX events - - CEF:0|Usergate|UTM|5|events|vpn_server|info|rt=XXXXXXXXXX deviceExternalId=XXXXXXXXXX suser=System cat=vpn act=user_login_success src=XXXX cs1Label=Attributes cs1={"login":"XXX"}
+# <14>1 2019-05-22T09:46:27Z XXXXXXXXXX XXXXXXXXXX events - - CEF:0|Usergate|UTM|5|events|vpn_server|error|rt=XXXXXXXXXX deviceExternalId=XXXXXXXXXX suser=System cat=vpn act=user_login_failed src=XXXX cs1Label=Attributes cs1={"login":"XXX"}
+
+TEXT = '{"<"NUMBER">"?} {NUMBER?} {STRING+} events - - CEF:0|Usergate|UTM|{NUMBER}|events|
+        vpn_server|{WORDDASH}|rt={$temp_time=NUMBER} deviceExternalId={event_src.id=STRING} 
+        suser={STRING*} cat=vpn act={msgid="user_login_success"|msgid="user_login_failed"} 
+        src={datafield1=IPV4|IPV6} {STRING+} cs1={$rest=REST}'
+
+subject = "account"
+action = "start"
+object = "session"
+
+switch msgid
+    case "user_login_success"
+        status = "success"
+        importance = "info"
+    case "user_login_failed"
+        status = "failure"
+        importance = "medium"
+        reason = "Authentication rejected"
+endswitch
+
+submessage("JSON", "SPLIT", $rest)
+
+subformula "SPLIT"
+    # Извлечение subject.name из $rest
+    JSON = "login"
+    subject.name = $login
+endsubformula
+
+time = epoch_ms_to_datetime($temp_time)
+
+category.generic = "Network Interaction"
+category.high = "Network Interaction"
+category.low = "VPN"
+
+event_src.vendor = "entensys"
+event_src.title = "usergate_utm"
+event_src.subsys = "VPN-Gateway"
+event_src.category = "Network security"
+
+id = "ARinteg_Entensys_UserGate_UTM_syslog_CEF_VPN_session_custom" and status = "failure"
+Ошибка открытия сеанса VPN session для пользователя {subject.name} на узле {event_src.id}. Причина {reason}
+
+id = "ARinteg_Entensys_UserGate_UTM_syslog_CEF_VPN_session_custom" and status = "success"
+Открытие сеанса VPN session для пользователя {subject.name} на узле {event_src.id} выполнено успешно. Причина {reason}
+
