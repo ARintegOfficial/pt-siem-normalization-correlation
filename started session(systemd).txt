@@ -1,0 +1,19 @@
+#<30>Jan 24 14:50:01 XXXX-XXXX-XXXX-XXXX systemd: Started Session XXXX of user root.
+ 
+TEXT = '{"<"NUMBER">"?} {time=DATETIME} {event_src.ip=IPV4|event_src.ip=IPV6|event_src.hostname=HOSTNAME|} systemd: Started Session {datafield1=NUMBER} of user {$nameusr=STRING}' 
+
+object.account.name=strip($nameusr, "", ".")
+ 
+action = "login"
+object = "process"
+status = "success"
+
+importance = "info"
+
+event_src.vendor = "linux"
+event_src.title = "systemd"
+event_src.category = "Operating system"
+
+id = "ARinteg_Linux_Rsyslog_login"
+Запущен сеанс {datafield1} для пользователя {$nameusr=STRING}
+

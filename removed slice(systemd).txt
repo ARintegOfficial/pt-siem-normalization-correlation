@@ -1,0 +1,40 @@
+#<30>Jan 24 14:50:01 XXXX-XXXX-XXXX-XXXX systemd: Removed slice user-XXX.slice.
+
+TEXT = '{"<"NUMBER">"?} {time=DATETIME} {event_src.ip=IPV4|event_src.ip=IPV6|event_src.hostname=HOSTNAME|} systemd: Removed slice {$nameusr=STRING}' 
+
+object.account.name=strip($nameusr, "", ".")
+
+action = "remove"
+object = "process"
+status = "success"
+
+importance = "info"
+
+event_src.vendor = "linux"
+event_src.title = "systemd"
+event_src.category = "Operating system"
+
+id = "ARinteg_Linux_Rsyslog_slice_removal"
+”дален слайс cgroup'ы {$nameusr}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

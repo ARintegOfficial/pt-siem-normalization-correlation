@@ -1,0 +1,16 @@
+#<7>Jan 24 14:40:01 XXXX-XXXX-XXXX-XXXX kernel: SELinux: initialized (dev tmpfs, type tmpfs), uses transition SIDs
+
+TEXT = '{"<"NUMBER">"?} {time=DATETIME} {event_src.ip=IPV4|event_src.ip=IPV6|event_src.hostname=HOSTNAME|} kernel: SELinux: initialized (dev {$filesyst1=WORD}, type {$filesyst1=WORD}), uses {object.process.name=REST}' 
+
+action = "execute"
+object = "process"
+status = "success"
+
+importance = "info"
+
+event_src.vendor = "linux"
+event_src.title = "kernel"
+event_src.category = "Operating system"
+
+id = "ARinteg_Linux_Iptables_process_execution"
+Система SELinux инициализирована. Используется процесс {object.process.name}
