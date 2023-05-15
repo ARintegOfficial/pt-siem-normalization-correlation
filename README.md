@@ -7,11 +7,11 @@
 
      a) iptables (в файле iptables.txt)
      
-     b) imjournal (в файле )
+     b) imjournal (в файле imjournal.txt)
      
-     c) crond (в файле )
+     c) crond (в файле CROND.txt)
      
-     d) SELinux (в файле )
+     d) SELinux (в файле SELinux.txt)
      
      e) omkafka (в файле )
      
