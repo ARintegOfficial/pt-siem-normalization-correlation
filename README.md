@@ -17,6 +17,14 @@
      
      f) правила, не относящиеся к перечисленным выше группам
      
+        [1] CentOS
+      
+       - файл created slice(systemd).txt
+      
+       - файл removed slice(systemd).txt
+       
+       - файл started session(systemd).txt
+     
 4) vSphere (в файле )    
 5) Postfix (в файле )   
 
