@@ -1,23 +1,35 @@
 # Правила нормализации для MaxPatrol SIEM  
   Здесь представлены правила нормализиции для MaxPatrol SIEM  
   Список правил:
-1) Cisco_ASA (в файле )  
-2) Nextcloud (в файле )  
-3) Linux
+1) Cisco_ASA
 
-     a) iptables (в файле iptables.txt)
+       - файл  
+
+4) Nextcloud 
+       
+       - файл
+       
+       - файл  
+
+4) Linux
+
+     a) iptables 
      
-     b) imjournal (в файле imjournal.txt)
+       - файл iptables.txt
      
-     c) crond (в файле CROND.txt)
+     b) imjournal 
      
-     d) SELinux (в файле SELinux.txt)
+       - файл imjournal.txt
      
-     e) omkafka (в файле )
+     c) crond 
+       
+       - файл CROND.txt
      
-     f) правила, не относящиеся к перечисленным выше группам
+     d) SELinux 
+        
+       - файл SELinux.txt
      
-        [1] CentOS
+     e) CentOS
       
        - файл created slice(systemd).txt
       
