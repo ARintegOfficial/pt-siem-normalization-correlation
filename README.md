@@ -3,39 +3,40 @@
   Список правил:
 1) Cisco_ASA
 
-       - файл  
+       • файл Cisco_ASA_XXXX.txt 
+         
 
 4) Nextcloud 
        
-       - файл
+       • файл
        
-       - файл  
+       • файл  
 
 4) Linux
 
      a) iptables 
      
-       - файл iptables.txt
+       • файл iptables.txt
      
      b) imjournal 
      
-       - файл imjournal.txt
+       • файл imjournal.txt
      
      c) crond 
        
-       - файл CROND.txt
+       • файл CROND.txt
      
      d) SELinux 
         
-       - файл SELinux.txt
+       • файл SELinux.txt
      
      e) CentOS
       
-       - файл created slice(systemd).txt
+       • файл created slice(systemd).txt
       
-       - файл removed slice(systemd).txt
+       • файл removed slice(systemd).txt
        
-       - файл started session(systemd).txt
+       • файл started session(systemd).txt
      
 4) vSphere (в файле )    
 5) Postfix (в файле )   
