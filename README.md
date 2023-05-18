@@ -4,7 +4,20 @@
 1) Cisco_ASA
 
        • файл Cisco_ASA_XXXX.txt 
+         -
+         -
+         -
+         -
+         -
+         -
+         -
+         -
+         -
+         -
+         -
+         -
          
+      
 
 4) Nextcloud 
        
