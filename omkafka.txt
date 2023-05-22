@@ -1,0 +1,18 @@
+﻿#<43>Mar 20 10:34:53 XXXX-XXXX-XXXX rsyslogd: omkafka: kafka message XXXXXXX:XXXX/bootstrap: Receive failed: Disconnected [v8.24.0-57.el7_9.3 try http://www.rsyslog.com/e/2422 ]
+
+#<43>Mar 20 10:34:53 XXXX-XXXX-XXXX rsyslogd: omkafka: kafka message XXX.XXX.XXX.XXX:XXXX/X: Receive failed: Disconnected [v8.24.0-57.el7_9.3 try http://www.rsyslog.com/e/2422 ]
+
+TEXT = '{"<"NUMBER">"?} {time=DATETIME} {event_src.ip=IPV4|event_src.ip=IPV6|event_src.hostname=HOSTNAME} rsyslogd: omkafka: kafka message {dst.ip=IPV4|dst.ip=IPV6|dst.hostname=HOSTNAME}:{dst.port=NUMBER}/{object.process.name=WORD}: Receive failed: Disconnected [{object.process.version=STRING} try http://www.rsyslog.com/e/{$num=NUMBER} ]'
+
+action = "disconnect"
+object = "process"
+status = "failure"
+
+importance = "info"
+
+event_src.vendor = "linux"
+event_src.title = "rsyslogd"
+event_src.category = "Operating system"
+
+id = "ARinteg_Linux_Rsyslog_process_disconnect"
+Не удалось получить сообщение от источника {event_src.ip|event_src.ip|event_src.hostname} для получателя {dst.ip|dst.ip|dst.hostname}.
