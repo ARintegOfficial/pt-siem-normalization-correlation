@@ -1,4 +1,4 @@
-#<22>Feb 7 10:22:13 XXXX-XXXX-XXX postfix/smtpd[XXXX]: Anonymous TLS connection established from unknown[XXX.XXX.XXX.XXX]: TLSv1.2 with cipher XXXX-XXXX-XXXX-XXXX (256/256 bits)
+п»ї#<22>Feb 7 10:22:13 XXXX-XXXX-XXX postfix/smtpd[XXXX]: Anonymous TLS connection established from unknown[XXX.XXX.XXX.XXX]: TLSv1.2 with cipher XXXX-XXXX-XXXX-XXXX (256/256 bits)
 
 TEXT = '{"<"NUMBER">"?} {time=DATETIME} {event_src.ip=IPV4|event_src.ip=IPV6|event_src.hostname=HOSTNAME|} postfix/smtpd[{NUMBER}]: Anonymous TLS connection established from unknown[{src.ip=IPV4|src.ip=IPV6}]: TLSv1{$vnum=STRING} with cipher {datafield1=WORDDASH} ({$bit=UNTIL(")")}'
 
@@ -13,4 +13,4 @@ event_src.title = "postfix"
 event_src.category = "Mail server"
 
 id = "ARinteg_Linux_Postfix_connection_established"
-Установлено анонимное TLS-соединение от неизвестного {src.ip}
+РЈСЃС‚Р°РЅРѕРІР»РµРЅРѕ Р°РЅРѕРЅРёРјРЅРѕРµ TLS-СЃРѕРµРґРёРЅРµРЅРёРµ РѕС‚ РЅРµРёР·РІРµСЃС‚РЅРѕРіРѕ {src.ip}
