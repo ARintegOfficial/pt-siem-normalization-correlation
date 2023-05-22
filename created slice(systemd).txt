@@ -1,4 +1,4 @@
-#<30>Jan 24 14:50:01 XXXX-XXXX-XXXX-XXXX systemd: Created slice user-XXX.slice.
+п»ї#<30>Jan 24 14:50:01 XXXX-XXXX-XXXX-XXXX systemd: Created slice user-XXX.slice.
 
 TEXT = '{"<"NUMBER">"?} {time=DATETIME} {event_src.ip=IPV4|event_src.ip=IPV6|event_src.hostname=HOSTNAME|} systemd: Created slice {$namecgroup=STRING}' 
 
@@ -15,4 +15,4 @@ event_src.title = "systemd"
 event_src.category = "Operating system"
 
 id = "ARinteg_Linux_Rsyslog_create"
-Создан слайс cgroup'ы {object.process.name}
+РЎРѕР·РґР°РЅ СЃР»Р°Р№СЃ cgroup'С‹ {object.process.name}

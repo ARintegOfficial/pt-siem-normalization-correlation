@@ -1,4 +1,4 @@
-#<78>Jan 24 14:50:01 XXXX-XXXX-XXXX-XXXX CROND[XXXXX]: (root) CMD (/usr/lib64/sa/sa1 1 1)
+п»ї#<78>Jan 24 14:50:01 XXXX-XXXX-XXXX-XXXX CROND[XXXXX]: (root) CMD (/usr/lib64/sa/sa1 1 1)
 
 TEXT = '{"<"NUMBER">"?} {time=DATETIME} {event_src.ip=IPV4|event_src.ip=IPV6|event_src.hostname=HOSTNAME|} CROND[{datafield1=NUMBER}]: ({object.account.name=WORD}) CMD ({object.path=UNTIL(")")}'     
 
@@ -13,4 +13,4 @@ event_src.title = "crond"
 event_src.category = "Operating system"
 
 id = "ARinteg_Linux_Rsyslog_process_execution"
-Выполнение сценария оболочки CMD {object.path} по заданию CROND под пользователем {object.account.name=STRING}
+Р’С‹РїРѕР»РЅРµРЅРёРµ СЃС†РµРЅР°СЂРёСЏ РѕР±РѕР»РѕС‡РєРё CMD {object.path} РїРѕ Р·Р°РґР°РЅРёСЋ CROND РїРѕРґ РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј {object.account.name=STRING}

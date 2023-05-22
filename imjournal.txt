@@ -1,4 +1,4 @@
-#<45>Jan 24 14:58:19 XXXX-XXXX-XXX-XXX rsyslogd: imjournal: journal reloaded... [v8.24.0-57.el7_9.3 try http://www.rsyslog.com/e/0 ]
+п»ї#<45>Jan 24 14:58:19 XXXX-XXXX-XXX-XXX rsyslogd: imjournal: journal reloaded... [v8.24.0-57.el7_9.3 try http://www.rsyslog.com/e/0 ]
 
 TEXT = '{"<"NUMBER">"?} {time=DATETIME} {event_src.ip=IPV4|event_src.ip=IPV6|event_src.hostname=HOSTNAME|} rsyslogd: imjournal: journal reloaded... [ {object.process.version=STRING} try http://www.rsyslog.com/e/{$num=NUMBER} ]' 
 
@@ -13,4 +13,4 @@ event_src.title = "rsyslog"
 event_src.category = "Operating system"
 
 id = "ARinteg_Linux_Rsyslog_journal_reloaded"
-Предупреждение: журнал перезагружен. Вследствие обновления rsyslog.
+РџСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµ: Р¶СѓСЂРЅР°Р» РїРµСЂРµР·Р°РіСЂСѓР¶РµРЅ. Р’СЃР»РµРґСЃС‚РІРёРµ РѕР±РЅРѕРІР»РµРЅРёСЏ rsyslog.

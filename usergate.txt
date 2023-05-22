@@ -1,4 +1,4 @@
-# <14>1 2019-05-22T09:40:33Z XXXXXXXXXX XXXXXXXXXX events - - CEF:0|Usergate|UTM|5|events|vpn_server|info|rt=XXXXXXXXXX deviceExternalId=XXXXXXXXXX suser=System cat=vpn act=user_login_success src=XXXX cs1Label=Attributes cs1={"login":"XXX"}
+п»ї# <14>1 2019-05-22T09:40:33Z XXXXXXXXXX XXXXXXXXXX events - - CEF:0|Usergate|UTM|5|events|vpn_server|info|rt=XXXXXXXXXX deviceExternalId=XXXXXXXXXX suser=System cat=vpn act=user_login_success src=XXXX cs1Label=Attributes cs1={"login":"XXX"}
 # <14>1 2019-05-22T09:46:27Z XXXXXXXXXX XXXXXXXXXX events - - CEF:0|Usergate|UTM|5|events|vpn_server|error|rt=XXXXXXXXXX deviceExternalId=XXXXXXXXXX suser=System cat=vpn act=user_login_failed src=XXXX cs1Label=Attributes cs1={"login":"XXX"}
 
 TEXT = '{"<"NUMBER">"?} {NUMBER?} {STRING+} events - - CEF:0|Usergate|UTM|{NUMBER}|events|
@@ -23,7 +23,7 @@ endswitch
 submessage("JSON", "SPLIT", $rest)
 
 subformula "SPLIT"
-    # Извлечение subject.name из $rest
+    # РР·РІР»РµС‡РµРЅРёРµ subject.name РёР· $rest
     JSON = "login"
     subject.name = $login
 endsubformula
@@ -40,8 +40,8 @@ event_src.subsys = "VPN-Gateway"
 event_src.category = "Network security"
 
 id = "ARinteg_Entensys_UserGate_UTM_syslog_CEF_VPN_session_custom" and status = "failure"
-Ошибка открытия сеанса VPN session для пользователя {subject.name} на узле {event_src.id}. Причина {reason}
+РћС€РёР±РєР° РѕС‚РєСЂС‹С‚РёСЏ СЃРµР°РЅСЃР° VPN session РґР»СЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ {subject.name} РЅР° СѓР·Р»Рµ {event_src.id}. РџСЂРёС‡РёРЅР° {reason}
 
 id = "ARinteg_Entensys_UserGate_UTM_syslog_CEF_VPN_session_custom" and status = "success"
-Открытие сеанса VPN session для пользователя {subject.name} на узле {event_src.id} выполнено успешно. Причина {reason}
+РћС‚РєСЂС‹С‚РёРµ СЃРµР°РЅСЃР° VPN session РґР»СЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ {subject.name} РЅР° СѓР·Р»Рµ {event_src.id} РІС‹РїРѕР»РЅРµРЅРѕ СѓСЃРїРµС€РЅРѕ. РџСЂРёС‡РёРЅР° {reason}
 

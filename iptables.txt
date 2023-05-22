@@ -1,4 +1,4 @@
-#<4>Jan 17 12:16:54 XXXX-XXXX-XXXX-XXXX kernel: iptables: INPUT DROP IN=ens192 OUT= MAC=XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX SRC=XXX.XXX.XXX.XXX DST=XXX.XXX.XXX.XXX LEN=XX TOS=XxXX PREC=XxXX TTL=XXX ID=XXXXX PROTO=UDP SPT=XXXXX DPT=XXX LEN=XX
+п»ї#<4>Jan 17 12:16:54 XXXX-XXXX-XXXX-XXXX kernel: iptables: INPUT DROP IN=ens192 OUT= MAC=XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX SRC=XXX.XXX.XXX.XXX DST=XXX.XXX.XXX.XXX LEN=XX TOS=XxXX PREC=XxXX TTL=XXX ID=XXXXX PROTO=UDP SPT=XXXXX DPT=XXX LEN=XX
 #<4>Jan 17 12:16:36 XXXX-XXXX-XXXX-XXXX kernel: iptables: INPUT DROP IN=ens192 OUT= MAC=XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX SRC=XXX.XXX.XXX.XXX DST=XXX.XXX.XXX.XXX LEN=XX TOS=XxXX PREC=XxXX TTL=XXX ID=XXXXX DF PROTO=TCP SPT=XXXXX DPT=XX WINDOW=XXXX RES=XxXX SYN URGP=X OPT (XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX)
 #<4>Jan 17 12:16:54 XXXX-XXXX-XXXX-XXXX kernel: iptables: INPUT DROP IN=ens192 OUT= MAC=XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX SRC=XXX.XXX.XXX.XXX DST=XXX.XXX.XXX.XXX LEN=XX TOS=XxXX PREC=XxXX TTL=XXX ID=XXXXX PROTO=UDP SPT=XXXXX DPT=XXX LEN=XX
 #<4>Jan 17 12:16:55 XXXX-XXXX-XXXX-XXXX kernel: iptables: INPUT DROP IN=ens192 OUT= MAC=XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX SRC=XXX.XXX.XXX.XXX DST=XXX.XXX.XXX.XXX LEN=XX TOS=XxXX PREC=XxXX TTL=XXX ID=XXXXX PROTO=TCP SPT=XXXXX DPT=XXX WINDOW=XXXX RES=XxXX SYN URGP=X
@@ -73,13 +73,13 @@ event_src.title = "iptables"
 event_src.category = "Operating system"
 
 id = "ARinteg_Linux_Iptables_connection_dropped" and direction="FORWARD" and (src.port != null and dst.port != null)
-Брандмауэр на маршрутизаторе сбросил соединение с узла {src.ip}:{src.port} на узел {dst.ip}:{dst.port} по протоколу {protocol}
+Р‘СЂР°РЅРґРјР°СѓСЌСЂ РЅР° РјР°СЂС€СЂСѓС‚РёР·Р°С‚РѕСЂРµ СЃР±СЂРѕСЃРёР» СЃРѕРµРґРёРЅРµРЅРёРµ СЃ СѓР·Р»Р° {src.ip}:{src.port} РЅР° СѓР·РµР» {dst.ip}:{dst.port} РїРѕ РїСЂРѕС‚РѕРєРѕР»Сѓ {protocol}
 
 id = "ARinteg_Linux_Iptables_connection_dropped" and direction="FORWARD" and (src.port = null and dst.port = null)
-Брандмауэр на маршрутизаторе сбросил соединение с узла {src.ip} на узел {dst.ip} по протоколу {protocol}
+Р‘СЂР°РЅРґРјР°СѓСЌСЂ РЅР° РјР°СЂС€СЂСѓС‚РёР·Р°С‚РѕСЂРµ СЃР±СЂРѕСЃРёР» СЃРѕРµРґРёРЅРµРЅРёРµ СЃ СѓР·Р»Р° {src.ip} РЅР° СѓР·РµР» {dst.ip} РїРѕ РїСЂРѕС‚РѕРєРѕР»Сѓ {protocol}
 
 id = "ARinteg_Linux_Iptables_connection_dropped" and direction="INPUT" and (src.port != null and dst.port != null)
-Брандмауэр на узле сбросил входящее соединение с узла {src.ip}:{src.port} на узел {dst.ip}:{dst.port} по протоколу {protocol}
+Р‘СЂР°РЅРґРјР°СѓСЌСЂ РЅР° СѓР·Р»Рµ СЃР±СЂРѕСЃРёР» РІС…РѕРґСЏС‰РµРµ СЃРѕРµРґРёРЅРµРЅРёРµ СЃ СѓР·Р»Р° {src.ip}:{src.port} РЅР° СѓР·РµР» {dst.ip}:{dst.port} РїРѕ РїСЂРѕС‚РѕРєРѕР»Сѓ {protocol}
 
 id = "ARinteg_Linux_Iptables_connection_dropped" and direction="INPUT" and (src.port = null and dst.port = null)
-Брандмауэр на узле сбросил входящее соединение с узла {src.ip} на узел {dst.ip} по протоколу {protocol}
+Р‘СЂР°РЅРґРјР°СѓСЌСЂ РЅР° СѓР·Р»Рµ СЃР±СЂРѕСЃРёР» РІС…РѕРґСЏС‰РµРµ СЃРѕРµРґРёРЅРµРЅРёРµ СЃ СѓР·Р»Р° {src.ip} РЅР° СѓР·РµР» {dst.ip} РїРѕ РїСЂРѕС‚РѕРєРѕР»Сѓ {protocol}

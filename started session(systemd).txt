@@ -1,4 +1,4 @@
-#<30>Jan 24 14:50:01 XXXX-XXXX-XXXX-XXXX systemd: Started Session XXXX of user root.
+п»ї#<30>Jan 24 14:50:01 XXXX-XXXX-XXXX-XXXX systemd: Started Session XXXX of user root.
  
 TEXT = '{"<"NUMBER">"?} {time=DATETIME} {event_src.ip=IPV4|event_src.ip=IPV6|event_src.hostname=HOSTNAME|} systemd: Started Session {datafield1=NUMBER} of user {$nameusr=STRING}' 
 
@@ -15,5 +15,5 @@ event_src.title = "systemd"
 event_src.category = "Operating system"
 
 id = "ARinteg_Linux_Rsyslog_login"
-Запущен сеанс {datafield1} для пользователя {$nameusr=STRING}
+Р—Р°РїСѓС‰РµРЅ СЃРµР°РЅСЃ {datafield1} РґР»СЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ {$nameusr=STRING}
 
