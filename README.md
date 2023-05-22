@@ -1,24 +1,21 @@
 # Правила нормализации для MaxPatrol SIEM  
-  Здесь представлены правила нормализиции для MaxPatrol SIEM  
+ ## Здесь представлены правила нормализиции для MaxPatrol SIEM  
   Список правил:
 1) Cisco_ASA
 
-       • файл Cisco_ASA_XXXX.txt 
-         -
-         -
-         -
-         -
-         -
-         -
-         -
-         -
-         -
-         -
-         -
-         -
+       • файл Cisco_ASA_113023.txt
+       • файл Cisco_ASA_113023.txt
+       • файл Cisco_ASA_113023.txt
+       • файл Cisco_ASA_113023.txt
+       • файл Cisco_ASA_113023.txt
+       • файл Cisco_ASA_113023.txt
+       • файл Cisco_ASA_113023.txt
+       • файл Cisco_ASA_113023.txt
+       • файл Cisco_ASA_113023.txt
+       • файл Cisco_ASA_113023.txt
+       • файл Cisco_ASA_113023.txt
+       • файл Cisco_ASA_113023.txt
          
-      
-
 4) Nextcloud 
        
        • файл
@@ -50,13 +47,21 @@
        • файл removed slice(systemd).txt
        
        • файл started session(systemd).txt
+      f) omkafka
+       
+       • файл omkafka.txt
+      
      
 4) vSphere (в файле )    
-5) Postfix (в файле )   
+5) Postfix
 
-Здесь представлены правила корелляции для MaxPatrol SIEM  
+       • файл postfix.txt  
+       
+## Здесь представлены правила корелляции для MaxPatrol SIEM  
   Список правил:
-1) UserGate (в файле usergate.txt)
+1) UserGate 
+       
+       • файл usergate.txt
 
 *Примечания: 
 X - отмечены слова, буквы или числа.
