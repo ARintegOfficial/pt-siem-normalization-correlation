@@ -12,7 +12,7 @@ if find_substr($message, "Login successful") != null then
     
     datafield1 = "Login successful"
     
-    # если "user" пустой
+    # ГҐГ±Г«ГЁ "user" ГЇГіГ±ГІГ®Г©
     # datafield2 = strip($message, "Login successful: ", "")
     
     submessage("JSON", "SPLIT2", $rest)
@@ -43,4 +43,4 @@ event_src.title = "Nextcloud"
 event_src.category = "AAA"
 
 id = "ARinteg_Nextcloud_login_success"
-Успешный вход
+Г“Г±ГЇГҐГёГ­Г»Г© ГўГµГ®Г¤
