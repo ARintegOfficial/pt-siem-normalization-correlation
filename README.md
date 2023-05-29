@@ -61,9 +61,9 @@
   Список правил:
 1) UserGate 
        
-       • файл PT_Nextcloud_file_created.txt
-       • файл usergate.txt
-       • файл usergate.txt
+       • файл Nextcloud_file_created.txt
+       • файл Nextcloud_file_accessed.txt
+       • файл Nextcloud_file_updated.txt
        • файл usergate.txt
        • файл usergate.txt
        • файл usergate.txt
