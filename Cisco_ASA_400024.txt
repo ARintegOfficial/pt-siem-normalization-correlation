@@ -1,4 +1,4 @@
-#<164>Apr 22 2022 02:58:48 XXX.XXX.XXX.XXX : %ASA-4-400024: IDS:XXXX Large ICMP packet from XXX.XXX.XXX.XXX to XXX.XXX.XXX.XXX on interface wifi-portal
+п»ї#<164>Apr 22 2022 02:58:48 XXX.XXX.XXX.XXX : %ASA-4-400024: IDS:XXXX Large ICMP packet from XXX.XXX.XXX.XXX to XXX.XXX.XXX.XXX on interface wifi-portal
 
 TEXT = '{"<"NUMBER">"?}{NUMBER?}{":"?} {time=DATETIME} {event_src.ip=IPV4|event_src.ip=IPV6|event_src.hostname=HOSTNAME|}{":"?}
         %{$event_src.title="ASA"}-{NUMBER}-{msgid="400024"}:
@@ -18,4 +18,4 @@ event_src.title = lower($event_src.title)
 event_src.category = "Firewall"
 
 id = "ARinteg_Cisco_ASA_IDS_syslog_400024_interfaces_wifi"
-Большой ICMP-трафик
+Р‘РѕР»СЊС€РѕР№ ICMP-С‚СЂР°С„РёРє
