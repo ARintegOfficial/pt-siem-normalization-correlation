@@ -16,4 +16,3 @@ event_src.category = "Operating system"
 
 id = "ARinteg_Linux_Rsyslog_login"
 Запущен сеанс {datafield1} для пользователя {$nameusr=STRING}
-
