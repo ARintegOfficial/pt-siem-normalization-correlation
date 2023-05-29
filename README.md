@@ -18,9 +18,13 @@
          
 4) Nextcloud 
        
-       • файл
-       
-       • файл  
+       • файл Nextcloud_file_created.txt
+       • файл Nextcloud_file_accessed.txt
+       • файл Nextcloud_file_updated.txt
+       • файл Nextcloud_file_written_to.txt
+       • файл Nextcloud_login_attempt.txt
+       • файл Nextcloud_login_success.txt
+       • файл Nextcloud_preview_accessed.txt
 
 4) Linux
 
@@ -61,12 +65,6 @@
   Список правил:
 1) UserGate 
        
-       • файл Nextcloud_file_created.txt
-       • файл Nextcloud_file_accessed.txt
-       • файл Nextcloud_file_updated.txt
-       • файл usergate.txt
-       • файл usergate.txt
-       • файл usergate.txt
        • файл usergate.txt
 
 *Примечания: 
