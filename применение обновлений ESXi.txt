@@ -1,0 +1,16 @@
+﻿#<167>2022-12-16T11:18:47.770Z XXXX-XXXX-XXXX Vpxa: verbose vpxa[XXXXX] [Originator@XXX sub=VpxaCnxHostd opID=WFU-XXX update=XXXXX] Applying updates from XXX to XXX (at XXX)
+
+TEXT = '{"<"NUMBER">"?} {time=DATETIME} {event_src.hostname=HOSTNAME} {subject.name=WORD}: verbose vpxa{"["?}{NUMBER}{"]"?}{"-"*} [Originator@{NUMBER} sub={datafield1=STRING*} opID={datafield2=STRING*} update={NUMBER}] Applying updates from {datafield3=NUMBER} to {datafield4=NUMBER} (at {datafield3=NUMBER})'
+ 
+action = "update"
+object = "virtual_machine"
+status = "ongoing"
+
+importance = "info"
+
+event_src.vendor = "vmware"
+event_src.title = "vsphere"
+event_src.category = "Virtualization"
+
+id = "ARinteg_VMware_vSphere_applying_updates"
+Применение обновлений ESXi с версии {datafield3} на версию {datafield4}

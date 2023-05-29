@@ -1,0 +1,16 @@
+﻿# <167>2022-12-16T11:18:47.770Z XXXXX Vpxa: verbose vpxa[XXXX] [Originator@XXX sub=XXX opID=XXX] Starting next StartFetchingUpdates() after 'XXXX' version, wait: true
+
+TEXT = '{"<"NUMBER">"?} {time=DATETIME} {event_src.hostname=HOSTNAME} {subject.name=WORD}: verbose vpxa{"["?}{NUMBER}{"]"?}{"-"*} [Originator@{NUMBER} sub={datafield1=STRING*} opID={datafield2=WORDDASH*}] Starting next StartFetchingUpdates() after \'{$num=NUMBER}\' version, wait: {$bool=WORD}'
+
+action = "update"
+object = "virtual_machine"
+status = "ongoing"
+
+importance = "info"
+
+event_src.vendor = "vmware"
+event_src.title = "vsphere"
+event_src.category = "Virtualization"
+
+id = "ARinteg_VMware_vSphere_waiting_for_update"
+Запуск процесса StartFetchingUpdates() после выполнения процесса {datafield2}

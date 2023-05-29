@@ -1,0 +1,16 @@
+﻿# <167>2022-12-16T11:18:47.770Z XXXXX Vpxa: verbose vpxa[XXXX] [Originator@XXXX sub=XXXX opID=XXXX] Completed FetchingUpdatesDone callback in 0 ms, time for waiting responce from HOSTD 38 ms
+
+TEXT = '{"<"NUMBER">"?} {time=DATETIME} {event_src.ip=IPV4|event_src.ip=IPV6|event_src.hostname=HOSTNAME|} Vpxa: verbose vpxa{"["?}{NUMBER}{"]"?}{"-"*} [Originator@{NUMBER} sub={STRING*} opID={chain_id=UNTIL(“] ”)}Completed {object.process.name=WORD} callback in {$datafield1=NUMBER} ms, time for waiting responce from HOSTD {datafield2=NUMBER} ms'
+
+action = "update "
+object = "virtual_machine"
+status = "success"
+
+importance = "info"
+
+event_src.vendor = "vmware"
+event_src.title = "vsphere"
+event_src.category = "Virtualization"
+
+id = "ARinteg_VMware_vSphere_host_disconnected"
+Получен обратный вызов от {object.process.name} за {datafield1}мс. Время ожидания ответа от HOSTD {datafield2}мс
