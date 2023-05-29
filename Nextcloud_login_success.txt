@@ -1,4 +1,4 @@
-#<133>May 12 09:56:32 XXXX: {"reqId":"XXXXX","level":1,"time":"May 12, 2022 09:56:23","remoteAddr":"XX.XX.XX.XX","user":"XXXX","app":"admin_audit","method":"GET","url":"/apps/files/?dir=/%XXXXX&fileid=XXXX","message":"Login successful: \"XXX\"","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/XX.XX (KHTML, like Gecko) Chrome/XX.XX.XX.XX Safari/XX.XX Edg/XX.XX.XX.XX","version":"XX.XX.XX.XX"}
+﻿#<133>May 12 09:56:32 XXXX: {"reqId":"XXXXX","level":1,"time":"May 12, 2022 09:56:23","remoteAddr":"XX.XX.XX.XX","user":"XXXX","app":"admin_audit","method":"GET","url":"/apps/files/?dir=/%XXXXX&fileid=XXXX","message":"Login successful: \"XXX\"","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/XX.XX (KHTML, like Gecko) Chrome/XX.XX.XX.XX Safari/XX.XX Edg/XX.XX.XX.XX","version":"XX.XX.XX.XX"}
 
 TEXT = '{"<"NUMBER">"?}{NUMBER?}{":"?} {time=DATETIME} {event_src.host=HOSTNAME} {event_src.host=HOSTNAME} {STRING}{":"?} {$rest=REST}'
 
@@ -12,7 +12,7 @@ if find_substr($message, "Login successful") != null then
     
     datafield1 = "Login successful"
     
-    # åñëè "user" ïóñòîé
+    # если "user" пустой
     # datafield2 = strip($message, "Login successful: ", "")
     
     submessage("JSON", "SPLIT2", $rest)
@@ -43,4 +43,4 @@ event_src.title = "Nextcloud"
 event_src.category = "AAA"
 
 id = "ARinteg_Nextcloud_login_success"
-Óñïåøíûé âõîä
+Успешный вход
