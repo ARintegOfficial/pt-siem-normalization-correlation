@@ -1,0 +1,20 @@
+﻿#<163>Apr 26 2022 09:31:31 XXX.XXX.XXX.XXX : %ASA-3-620002: Drop CTIQBE packet from outside:XXX.XXX.XXX.XXX/XXXX to inside:XXX.XXX.XXX.XXX/XXX Reason: unrecognized version: 0x000f0000
+
+TEXT = '{"<"NUMBER">"?}{NUMBER?}{":"?} {time=DATETIME} {event_src.ip=IPV4|event_src.ip=IPV6} {":"?}
+        %{$event_src.title="ASA"} - {NUMBER} -{msgid="620002"}:
+        Drop CTIQBE packet from outside: {src.ip=IPV4|IPV6}/{src.port = NUMBER} to inside:{dst.ip=IPV4|IPV6}/{dst.port = NUMBER} Reason: unrecognized version: {datafield1 = STRING}'
+       
+action = "deny"
+object = "packet"
+status = "success"
+
+reason = "unrecognized version"
+
+importance = "info"
+
+event_src.vendor = "cisco"
+event_src.title = lower($event_src.title)
+event_src.category = "Firewall"
+
+id = "ARinteg_Cisco_ASA_FWSM_PIX_syslog_620002_Unsupported_CTIQBE_version"
+ASA получил сообщение CTIQBE с неподдерживаемым номером версии и отбросил пакет

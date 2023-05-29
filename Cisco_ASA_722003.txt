@@ -1,0 +1,18 @@
+﻿#<164>Apr 26 2022 09:23:17 10.1.240.17 : %ASA-4-722003: IP <XXX.XXX.XXX.XXX> Error authenticating SVC connect request.
+
+TEXT = '{"<"NUMBER">"?}{NUMBER?}{":"?} {time=DATETIME} {event_src.ip=IPV4|event_src.ip=IPV6|event_src.hostname=HOSTNAME|}{":"?}
+        %{$event_src.title="ASA"}-{NUMBER}-{msgid="722003"}:
+        IP <{src.ip=IPV4}> Error authenticating SVC connect request.'
+
+action = "deny"
+object = "connection"
+status = "failure"
+
+importance = "info"
+
+event_src.vendor = "cisco"
+event_src.title = lower($event_src.title)
+event_src.category = "Firewall"
+
+id = "PT_Cisco_ASA_syslog_722003_Error_authenticating_SVC_connect_request"
+Пользователю потребовалось слишком много времени для загрузки и подключения

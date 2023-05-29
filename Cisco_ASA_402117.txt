@@ -1,0 +1,19 @@
+﻿#<164>Apr 25 2022 12:28:47 XXX.XXX.XXX.XXX : %ASA-4-402117: IPSEC: Received a non-IPSec packet (protocol= tcp) from XXX.XXX.XXX.XXX to XXX.XXX.XXX.XXX.
+
+TEXT = '{"<"NUMBER">"?}{NUMBER?}{":"?} {time=DATETIME} {event_src.ip=IPV4}{":"?}
+        %{$event_src.title="ASA"|}-{NUMBER}-{msgid="402117"}:
+        IPSEC: Received a non-IPSec packet (protocol = tcp) from{src.ip=IPV4|IPV6|}
+        to {dst.ip=IPV4|IPV6}.'
+
+action = "open"
+object = "connection"
+status = "failure"
+
+importance = "info"
+
+event_src.vendor = "cisco"
+event_src.title = lower($event_src.title)
+event_src.category = "Firewall"
+
+id = "ARinteg_Cisco_ASA_FWSM_PIX_syslog_402117_IPSEC_Received_a_non-IPsec_(protocol)_packet"
+Полученный пакет соответствует ACL-списку криптокарты, но не инкапсулирован в IPsec

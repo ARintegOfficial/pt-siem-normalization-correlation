@@ -1,0 +1,26 @@
+﻿#<164>Apr 22 2022 10:45:59 XXX.XXX.XXX.XXX : %ASA-4-752012: IKEv1 was unsuccessful at setting up a tunnel. Map Tag = tipixmap. Map Sequence Number = 20.
+
+TEXT = '{"<"NUMBER">"?}{NUMBER?}{":"?} {time=DATETIME} {event_src.ip=IPV4}{":"?}
+        %{$event_src.title="ASA"}-{NUMBER}-{msgid="752012"}:
+        IKEv1 was unsuccessful at setting up a tunnel. Map Tag = tipixmap. Map Sequence Number = {datafield1 = NUMBER?}.'
+
+subject = if subject.name != null then "account" else null endif
+action = "start"
+object = "session"
+status = "failure"
+
+protocol = "ipsec"
+
+# datafield4 - tunnel group
+
+reason = "timeout"
+
+importance = "low"
+
+event_src.vendor = "cisco"
+event_src.title = lower($event_src.title)
+event_src.subsys = "VPN-Gateway"
+event_src.category = "Firewall"
+
+id = "ARinteg_Cisco_ASA_FWSM_PIX_syslog_752012_IKEv_protocol_was_unsuccessful_at_setting_up_a_tunnel"
+Указанному протоколу не удалось инициировать туннель с использованием настроенной криптокарты

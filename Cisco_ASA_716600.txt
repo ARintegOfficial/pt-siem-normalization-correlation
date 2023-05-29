@@ -1,4 +1,4 @@
-#<163>Apr 25 2022 12:31:21 XXXX : %ASA-3-716600: Rejected 205KB Hostscan data from IP <XXXX>. Hostscan results exceed default limit of 200KB.
+п»ї#<163>Apr 25 2022 12:31:21 XXXX : %ASA-3-716600: Rejected 205KB Hostscan data from IP <XXXX>. Hostscan results exceed default limit of 200KB.
 
 TEXT = '{"<"NUMBER">"?}{NUMBER?}{":"?} {time=DATETIME} {event_src.ip=IPV4|event_src.ip=IPV6|event_src.hostname=HOSTNAME|}{":"?}
         %{$event_src.title="ASA"}-{NUMBER}-{msgid="716600"}:
@@ -17,4 +17,4 @@ event_src.title = lower($event_src.title)
 event_src.category = "Firewall"
 
 id = "ARinteg_Cisco_ASA_syslog_716600_Hostscan_data_exceeds_the_limit"
-Когда размер полученных данных Hostscan превышает предел, настроенный на ASA Secure Firewall, данные удаляются
+РљРѕРіРґР° СЂР°Р·РјРµСЂ РїРѕР»СѓС‡РµРЅРЅС‹С… РґР°РЅРЅС‹С… Hostscan РїСЂРµРІС‹С€Р°РµС‚ РїСЂРµРґРµР», РЅР°СЃС‚СЂРѕРµРЅРЅС‹Р№ РЅР° ASA Secure Firewall, РґР°РЅРЅС‹Рµ СѓРґР°Р»СЏСЋС‚СЃСЏ

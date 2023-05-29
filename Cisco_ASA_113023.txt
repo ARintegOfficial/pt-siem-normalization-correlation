@@ -1,8 +1,8 @@
-#<162>Apr 25 2022 17:06:46 XXXX : %ASA-2-113023: AAA Marking RADIUS server XXXX in aaa-server group XXX-XXX as ACTIVE
+п»ї#<162>Apr 25 2022 17:06:46 XXXX : %ASA-2-113023: AAA Marking RADIUS server XXXX in aaa-server group msk-netiq as ACTIVE
 
 TEXT = '{"<"NUMBER">"?}{NUMBER?}{":"?} {time=DATETIME} {event_src.ip=IPV4|event_src.ip=IPV6|event_src.hostname=HOSTNAME|}{":"?}
         %{$event_src.title="ASA"}-{NUMBER}-{msgid="113023"}:
-        {object.name="AAA"} Marking {datafield1=STRING} server {src.ip=IPV4|src.ip=IPV6} in aaa-server group XXX-XXX as ACTIVE'
+        {object.name="AAA"} Marking {datafield1=STRING} server {src.ip=IPV4|src.ip=IPV6} in aaa-server group msk-netiq as ACTIVE'
 
 action = "info"
 object = "request"
@@ -15,4 +15,4 @@ event_src.title = lower($event_src.title)
 event_src.category = "Firewall"
 
 id = "ARinteg_Cisco_ASA_syslog_113023_AAA_RADIUS_server_ACTIVE"
-ASA Secure Firewall повторно активировал сервер AAA, который ранее был помечен как неисправный. Сервер AAA теперь доступен для обслуживания запросов AAA
+ASA Secure Firewall РїРѕРІС‚РѕСЂРЅРѕ Р°РєС‚РёРІРёСЂРѕРІР°Р» СЃРµСЂРІРµСЂ AAA, РєРѕС‚РѕСЂС‹Р№ СЂР°РЅРµРµ Р±С‹Р» РїРѕРјРµС‡РµРЅ РєР°Рє РЅРµРёСЃРїСЂР°РІРЅС‹Р№. РЎРµСЂРІРµСЂ AAA С‚РµРїРµСЂСЊ РґРѕСЃС‚СѓРїРµРЅ РґР»СЏ РѕР±СЃР»СѓР¶РёРІР°РЅРёСЏ Р·Р°РїСЂРѕСЃРѕРІ AAA

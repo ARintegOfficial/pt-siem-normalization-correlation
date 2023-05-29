@@ -1,0 +1,19 @@
+﻿#<164>Apr 26 2022 10:21:45 XXX.XXX.XXX.XXX : %ASA-4-400027: IDS:XXXX TCP SYN+FIN flags from XXX.XXX.XXX.XXX to XXX.XXX.XXX.XXX on interface outside
+
+TEXT = '{"<"NUMBER">"?}{NUMBER?}{":"?} {time=DATETIME} {event_src.ip=IPV4|event_src.ip=IPV6|event_src.hostname=HOSTNAME|}{":"?}
+        %{$event_src.title="ASA"}-{NUMBER}-{msgid="400027"}:
+        IDS:{NUMBER} TCP SYN+FIN flags from {src.ip=IPV4|src.ip=IPV6} 
+        to {dst.ip=IPV4|dst.ip=IPV6} on interface {datafield1 = "inside"|"outside"}'
+
+action = "alert"
+object = "packet"
+status = "success"
+
+importance = "medium"
+
+event_src.vendor = "cisco"
+event_src.title = lower($event_src.title)
+event_src.category = "Firewall"
+
+id = "ARinteg_Cisco_ASA_IDS_syslog_400027_TCP_SYN_FIN_flags"
+Флаги TCP SYN+FIN

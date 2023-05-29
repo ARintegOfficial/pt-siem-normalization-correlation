@@ -1,0 +1,18 @@
+#<162>Apr 25 2022 12:09:40 XXX.XXX.XXX.XXX : %ASA-2-113022: AAA Marking RADIUS server XXX.XXX.XXX.XXX in aaa-server group msk-netiq as FAILED
+
+TEXT = '{"<"NUMBER">"?}{NUMBER?}{":"?} {time=DATETIME} {event_src.ip=IPV4|event_src.ip=IPV6|event_src.hostname=HOSTNAME|}{":"?}
+        %{$event_src.title="ASA"}-{NUMBER}-{msgid="113022"}:
+        {object.name="AAA"} Marking RADIUS server {src.ip=IPV4|src.ip=IPV6} in aaa-server group msk-netiq as FAILED'
+
+action = "info"
+object = "request"
+status = "success"
+
+importance = "info"
+
+event_src.vendor = "cisco"
+event_src.title = lower($event_src.title)
+event_src.category = "Firewall"
+
+id = "ARinteg_Cisco_ASA_syslog_113022_AAA_RADIUS_server_FAILED"
+Secure Firewall ASA попытался выполнить проверку подлинности, авторизацию или учетный запрос к серверу AAA и не получил ответа в течение настроенного окна тайм-аута. 

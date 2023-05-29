@@ -1,4 +1,4 @@
-#<164>Apr 25 2022 09:34:43 XXXX : %ASA-4-722041: TunnelGroup <DefaultWEBVPNGroup> GroupPolicy <VPN_Users> User <XXXX> IP <XXXX> No IPv6 address available for SVC connection
+п»ї#<164>Apr 25 2022 09:34:43 XXXX : %ASA-4-722041: TunnelGroup <DefaultWEBVPNGroup> GroupPolicy <VPN_Users> User <XXXX> IP <XXXX> No IPv6 address available for SVC connection
 
 TEXT = '{"<"NUMBER">"?}{NUMBER?}{":"?} {time=DATETIME} {event_src.ip=IPV4|event_src.ip=IPV6|event_src.hostname=HOSTNAME|}{":"?}
         %{$event_src.title="ASA"}-{NUMBER}-{msgid="722041"}:
@@ -17,4 +17,4 @@ event_src.title = lower($event_src.title)
 event_src.category = "Firewall"
 
 id = "ARinteg_Cisco_ASA_syslog_722041_No_IPv6_address_available"
-Адрес IPv6 был недоступен для назначения удаленному клиенту SVC
+РђРґСЂРµСЃ IPv6 Р±С‹Р» РЅРµРґРѕСЃС‚СѓРїРµРЅ РґР»СЏ РЅР°Р·РЅР°С‡РµРЅРёСЏ СѓРґР°Р»РµРЅРЅРѕРјСѓ РєР»РёРµРЅС‚Сѓ SVC

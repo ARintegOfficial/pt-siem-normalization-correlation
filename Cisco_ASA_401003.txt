@@ -1,0 +1,19 @@
+﻿#<164>Apr 25 2022 15:01:32 XXX.XXX.XXX.XXX : %ASA-4-401003: Shun deleted: XXX.XXX.XXX.XXX
+
+TEXT = '{"<"NUMBER">"?}{NUMBER?}{":"?} {time=DATETIME} {event_src.ip=IPV4}{":"?}
+        %{$event_src.title="ASA"}-{NUMBER}-{msgid="401003"}:
+        Shun deleted:{datafield1 = IPV4|IPV6 }'
+
+action = "remove"
+object = "host"
+status = "success"
+
+importance = "medium"
+
+event_src.vendor = "cisco"
+event_src.title = lower($event_src.title)
+object.property = "privileges"
+event_src.category = "Firewall"
+
+id = "ARinteg_Cisco_ASA_FWSM_PIX_syslog_401003_Shun_deleted_IP_address"
+Из базы данных исключений был удален единственный исключенный хост

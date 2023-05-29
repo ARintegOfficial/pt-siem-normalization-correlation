@@ -1,0 +1,18 @@
+﻿#<164>Apr 25 2022 09:55:47 XXX.XXX.XXX.XXX : %ASA-4-401004: Shunned packet: XXX.XXX.XXX.XXX ==> XXX.XXX.XXX.XXX on interface outside
+
+TEXT = '{"<"NUMBER">"?}{NUMBER?}{":"?} {time=DATETIME} {event_src.ip=IPV4} {":"?}
+        %{$event_src.title="ASA"}-{NUMBER}-{msgid="401004"}:
+        Shunned packet: {src.ip=IPV4|IPV6} ==> {dst.ip=IPV4|IPV6|} on interface outside '
+
+action = "deny"
+object = "packet"
+status = "success"
+
+importance = "info"
+
+event_src.vendor = "cisco"
+event_src.title = lower($event_src.title)
+event_src.category = "Firewall"
+
+id = "ARinteg_Cisco_ASA_FWSM_PIX_syslog_401004_Shunned packet__on_interface"
+Пакет был отброшен, так как хост, указанный IP SRC, является хостом в базе данных shun

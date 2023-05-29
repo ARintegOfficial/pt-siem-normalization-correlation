@@ -1,0 +1,19 @@
+﻿#<164>Apr 25 2022 15:51:16 XXX.XXX.XXX.XXX : %ASA-4-733101: Host XXX.XXX.XXX.XXX is targeted. Current burst rate is 1 per second, max configured rate is 100; Current average rate is 5 per second, max configured rate is 5; Cumulative total count is 6065
+
+TEXT = '{"<"NUMBER">"?}{NUMBER?}{":"?} {time=DATETIME} {event_src.ip=IPV4} {":"?}
+        %{$event_src.title="ASA"}-{NUMBER}-{msgid="733101"}:
+        {object = STRING} {dst.ip = IPV4|IPV6} {datafield1 = "is targeted"|"is attacking"}. Current burst rate is {datafield2 = NUMBER} per second, max configured rate is {datafield3 = NUMBER}; 
+        Current average rate is {datafield4 = NUMBER} per second, max configured rate is {datafield5 = NUMBER}; Cumulative total count is {datafield6 = NUMBER}'
+        
+action = "info"
+object = "attack"
+status = "success"
+
+importance = "info"
+
+event_src.vendor = "cisco"
+event_src.title = lower($event_src.title)
+event_src.category = "Firewall"
+
+id = "ARinteg_Cisco_ASA_FWSM_PIX_syslog_733101_ASA_detected_that_a_specific_host_i_either_scanning_the network_or_is_being_scanned"   
+Secure Firewall ASA обнаружил, что конкретный хост либо сканирует сеть, либо сканируется  

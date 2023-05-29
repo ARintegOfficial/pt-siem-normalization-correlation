@@ -1,0 +1,24 @@
+﻿#<163>Apr 25 2022 12:14:45 XXX.XXX.XXX.XXX : %ASA-3-752015: Tunnel Manager has failed to establish an L2L SA. All configured IKE versions failed to establish the tunnel. Map Tag= tipixmap. Map Sequence Number = 20.
+
+TEXT = '{"<"NUMBER">"?}{NUMBER?}{":"?} {time=DATETIME} {event_src.ip=IPV4}{":"?}
+        %{$event_src.title="ASA"}-{NUMBER}-{msgid="752015"}:
+        Tunnel Manager has failed to establish an L2L SA. All configured IKE versions failed to establish the tunnel. Map Tag = tipixmap. Map Sequence Number = {datafield1 = NUMBER?}.'
+
+subject = if subject.name != null then "account" else null endif
+action = "start"
+object = "session"
+status = "failure"
+
+protocol = "ipsec"
+
+reason = "timeout"
+
+importance = "low"
+
+event_src.vendor = "cisco"
+event_src.title = lower($event_src.title)
+event_src.subsys = "VPN-Gateway"
+event_src.category = "Firewall"
+
+id = "ARinteg_Cisco_ASA_FWSM_PIX_syslog_752015_Tunnel_Manager_has_failed_to_establish_an_L2L_SA"
+Попытка поднять туннель L2L к узлу не удалась после попытки со всеми настроенными протоколами
