@@ -1,0 +1,46 @@
+﻿#<133>May 12 14:04:06 XXXXXX: {"reqId":"XXXX","level":1,"time":"May 12, 2022 14:04:05","remoteAddr":"XX.XX.XX.XX","user":"XXXX","app":"admin_audit","method":"PUT","url":"/XXX/XXX/%XXX/%XXXX/12.05/%XXXX.mp4","message":"File written to: \"/\uXXXX.mp4\"","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X XX_XX_XX) AppleWebKit/XX.XX.XX (KHTML, like Gecko) Version/XX.XX.XX Safari/XX.XX.XX","version":"XX.XX.XX.XX"}
+
+TEXT = '{"<"NUMBER">"?}{NUMBER?}{":"?} {time=DATETIME} {event_src.host=HOSTNAME} {event_src.host=HOSTNAME} {STRING}{":"?} {$rest=REST}'
+
+submessage("JSON", "SPLIT", $rest)
+
+subformula "SPLIT"
+    JSON = "message"
+endsubformula
+
+if find_substr($message, "File written to") != null then
+    
+    datafield1 = "File written to"
+    
+    # если "user" пустой
+    # datafield2 = strip($message, "File written to: ", "")
+    
+    submessage("JSON", "SPLIT2", $rest)
+
+endif
+
+subformula "SPLIT2"
+    JSON = "app"
+    datafield3 = $reqId
+    datafield4 = $level
+    event_src.ip = $remoteAddr
+    subject.account.name = $user
+    datafield5 = $app
+    datafield6 = $method
+    datafield7 = $url
+    datafield8 = $userAgent
+    datafield9 = $version
+endsubformula
+    
+action = "move"
+object = "file"
+status = "success"
+
+importance = "info"
+
+event_src.vendor = "Nextcloud"
+event_src.title = "Nextcloud"
+event_src.category = "Storage device"
+
+id = "ARinteg_Nextcloud_file_written_to"
+Запись файла

@@ -1,0 +1,46 @@
+﻿#<133>May 12 14:04:50 XXXX XXXX: {"reqId":"YnzpyEDDakbEaDY2CDKB0QAAANg","level":1,"time":"May 12, 2022 14:04:41","remoteAddr":"XXX.XXX.XXX.XXX","user":"XXXX","app":"admin_audit","method":"GET","url":"/XXXXX/XXXX/XXXX/XXXX/%XXXXXXX/12.05/%XXXXXXX.mp4","message":"File accessed: \"/\XXXXXXXX.mp4\"","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X XX_XX_XX) AppleWebKit/XXX.XXX(KHTML, like Gecko) Chrome/XXXX.XXXX.XXXX.XXXX Safari/537.36","version":"22.2.6.3"}
+
+TEXT = '{"<"NUMBER">"?}{NUMBER?}{":"?} {time=DATETIME} {event_src.host=HOSTNAME} {event_src.host=HOSTNAME} {STRING}{":"?} {$rest=REST}'
+
+submessage("JSON", "SPLIT", $rest)
+
+subformula "SPLIT"
+    JSON = "message"
+endsubformula
+
+if find_substr($message, "File accessed") != null then
+    
+    datafield1 = "File accessed"
+    
+    # если "user" пустой
+    # datafield2 = strip($message, "File accessed: ", "")
+    
+    submessage("JSON", "SPLIT2", $rest)
+
+endif
+
+subformula "SPLIT2"
+    JSON = "app"
+    datafield3 = $reqId
+    datafield4 = $level
+    event_src.ip = $remoteAddr
+    subject.account.name = $user
+    datafield5 = $app
+    datafield6 = $method
+    datafield7 = $url
+    datafield8 = $userAgent
+    datafield9 = $version
+endsubformula
+    
+action = "access"
+object = "file"
+status = "success"
+
+importance = "info"
+
+event_src.vendor = "Nextcloud"
+event_src.title = "Nextcloud"
+event_src.category = "Storage device"
+
+id = "ARinteg_Nextcloud_file_accessed"
+Файл доступен

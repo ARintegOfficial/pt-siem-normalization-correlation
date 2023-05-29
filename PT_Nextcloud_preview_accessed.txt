@@ -1,0 +1,46 @@
+﻿#<133>May 12 13:55:26 XXXX: {"reqId":"XXXXX","level":1,"time":"May 12, 2022 13:55:18","remoteAddr":"XXX.XXX.XXX.XXX","user":"XXXX","app":"admin_audit","method":"GET","url":"/XXXX fileId=XXXX&c=cXXXXXx=XXXy=XXXforceIcon=XXXa=X","message":"Preview accessed: \"\XXXXXX.xlsx\" (width: \"250\", height: \"250\" crop: \"1\", mode: \"fill\")","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/XXX.XXX (KHTML, like Gecko) Chrome/XX.XX.XX.XX Safari/XXX.XXX","version":"XXX.XXX.XXX.XXX"}
+
+TEXT = '{"<"NUMBER">"?}{NUMBER?}{":"?} {time=DATETIME} {event_src.host=HOSTNAME} {event_src.host=HOSTNAME} {STRING}{":"?} {$rest=REST}'
+
+submessage("JSON", "SPLIT", $rest)
+
+subformula "SPLIT"
+    JSON = "message"
+endsubformula
+
+if find_substr($message, "Preview accessed") != null then
+    
+    datafield1 = "Preview accessed"
+    
+    # если "user" пустой
+    # datafield2 = strip($message, "Preview accessed: ", "")
+    
+    submessage("JSON", "SPLIT2", $rest)
+
+endif
+
+subformula "SPLIT2"
+    JSON = "app"
+    datafield3 = $reqId
+    datafield4 = $level
+    event_src.ip = $remoteAddr
+    subject.account.name = $user
+    datafield5 = $app
+    datafield6 = $method
+    datafield7 = $url
+    datafield8 = $userAgent
+    datafield9 = $version
+endsubformula
+    
+action = "access"
+object = "file"
+status = "success"
+
+importance = "info"
+
+event_src.vendor = "Nextcloud"
+event_src.title = "Nextcloud"
+event_src.category = "Storage device"
+
+id = "ARinteg_Nextcloud_preview_accessed"
+Доступ к предварительному просмотру

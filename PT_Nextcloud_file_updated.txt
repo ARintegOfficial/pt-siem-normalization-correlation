@@ -1,0 +1,48 @@
+﻿#<133>May 12 14:00:18 XXXXX: {"reqId":"XXXXX","level":1,"time":"May 12, 2022 14:00:11","remoteAddr":"XX.XX.XX.XX","user":"XXXX","app":"admin_audit","method":"POST","url":"/XXX/XXX/XXX?doc=XXXXX.XXXXX.XXXXX","message":"File updated: \"/\uXXXXXXXXX.xlsx\"","userAgent":"Node.js/6.13","version":"XX.XX.XX.XX"}
+
+TEXT = '{"<"NUMBER">"?}{NUMBER?}{":"?} {time=DATETIME} {event_src.host=HOSTNAME} {event_src.host=HOSTNAME} {STRING}{":"?} {$rest=REST}'
+
+submessage("JSON", "SPLIT", $rest)
+
+subformula "SPLIT"
+    JSON = "message"
+endsubformula
+
+if find_substr($message, "File updated") != null then
+    
+    datafield1 = "File updated"
+    
+    # если "user" пустой
+    # datafield2 = strip($message, "File updated: ", "")
+    
+    submessage("JSON", "SPLIT2", $rest)
+
+endif
+
+subformula "SPLIT2"
+    JSON = "app"
+   datafield3 = $reqId
+    datafield4 = $level
+    event_src.ip = $remoteAddr
+    subject.account.name = $user
+    datafield5 = $app
+    datafield6 = $method
+    datafield7 = $url
+    datafield8 = $userAgent
+    datafield9 = $version
+    
+endsubformula
+    
+
+action = "update"
+object = "file"
+status = "success"
+
+importance = "info"
+
+event_src.vendor = "Nextcloud"
+event_src.title = "Nextcloud"
+event_src.category = "Storage device"
+
+id = "ARinteg_Nextcloud_file_updated"
+Изменение файла
