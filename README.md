@@ -60,8 +60,13 @@
        • файл omkafka.txt
       
      
-4) vSphere (в файле )    
-5) Postfix
+4) vSphere
+
+       • файл запуск процесса StartFetchingUpdates.txt
+       • получен обратный вызов.txt
+       • применение обновлений ESXi.txt
+
+7) Postfix
 
        • файл postfix.txt  
        
